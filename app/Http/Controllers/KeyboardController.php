@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guitar;
+use App\Models\Keyboard;
 use Illuminate\Http\Request;
 
-class GuitarController extends Controller
+class KeyboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class GuitarController extends Controller
      */
     public function index()
     {
-        $guitar = Guitar::all();
-        return view ('guitar.index', compact('guitar'));
+        $keyboard = Keyboard::all();
+        return view ('keyboard.index', compact('keyboard'));
     }
 
     /**
@@ -25,7 +25,7 @@ class GuitarController extends Controller
      */
     public function create()
     {
-    return view ('guitar.create');
+        return view ('keyboard.create');
     }
 
     /**
@@ -36,57 +36,56 @@ class GuitarController extends Controller
      */
     public function store(Request $request)
     {
-        $guitar = request()->except('_token');
-        guitar::insert($guitar);
-        return redirect()->to(url('/guitar'));
-        //return view('guitar.index');
+        $keyboard = request()->except('_token');
+        keyboard::insert($keyboard);
+        return redirect()->to(url('/keyboard'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Guitar  $guitar
+     * @param  \App\Models\Keyboard  $keyboard
      * @return \Illuminate\Http\Response
      */
-    public function show(Guitar $guitar)
+    public function show(Keyboard $keyboard)
     {
-        return view ('guitar.show' , compact('guitar'));
+        return view ('keyboard.show' , compact('keyboard'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Guitar  $guitar
+     * @param  \App\Models\Keyboard  $keyboard
      * @return \Illuminate\Http\Response
      */
-    public function edit(Guitar $guitar)
+    public function edit(Keyboard $keyboard)
     {
-        return view ('guitar.edit', compact('guitar'));
+        return view ('keyboard.edit', compact('keyboard'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Guitar  $guitar
+     * @param  \App\Models\Keyboard  $keyboard
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Guitar $guitar)
+    public function update(Request $request, Keyboard $keyboard)
     {
-        $dataGuitar = request()->except('_token');
-        $guitar->update($dataGuitar);
-        return redirect()->to(url('/guitar'));
+        $dataKeyboard = request()->except('_token');
+        $keyboard->update($dataKeyboard);
+        return redirect()->to(url('/keyboard'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Guitar  $guitar
+     * @param  \App\Models\Keyboard  $keyboard
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Guitar $guitar)
+    public function destroy(Keyboard $keyboard)
     {
-        $guitar->delete();
-        return redirect()->to(url('/guitar'));
+        $keyboard>delete();
+        return redirect()->to(url('/keyboard'));
     }
 }

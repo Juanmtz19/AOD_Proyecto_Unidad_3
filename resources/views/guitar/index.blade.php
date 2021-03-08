@@ -45,7 +45,7 @@
           <p><b>Marca:</b>{{$guitars->model}}</p>
           </td>
           <td> <p>{{$guitars->description}}</p></td>
-          <td>ver | editar| eliminar</td>
+         
         </tr>
         </tbody>
         

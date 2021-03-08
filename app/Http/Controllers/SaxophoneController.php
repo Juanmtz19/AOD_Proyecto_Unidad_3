@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guitar;
+use App\Models\Saxophone;
 use Illuminate\Http\Request;
 
-class GuitarController extends Controller
+class SaxophoneController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class GuitarController extends Controller
      */
     public function index()
     {
-        $guitar = Guitar::all();
-        return view ('guitar.index', compact('guitar'));
+        $saxophone = Saxophone::all();
+        return view ('saxophone.index', compact ('saxophone'));
     }
 
     /**
@@ -25,7 +25,7 @@ class GuitarController extends Controller
      */
     public function create()
     {
-    return view ('guitar.create');
+        return view ('saxophone.create');
     }
 
     /**
@@ -36,57 +36,57 @@ class GuitarController extends Controller
      */
     public function store(Request $request)
     {
-        $guitar = request()->except('_token');
-        guitar::insert($guitar);
-        return redirect()->to(url('/guitar'));
-        //return view('guitar.index');
+        $saxophone = request()->except('_token');
+        saxophone::insert($saxophone);
+        return redirect()->to(url('/saxophone'));
+        //return view('saxophone.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Guitar  $guitar
+     * @param  \App\Models\Saxophone  $saxophone
      * @return \Illuminate\Http\Response
      */
-    public function show(Guitar $guitar)
+    public function show(Saxophone $saxophone)
     {
-        return view ('guitar.show' , compact('guitar'));
+        return view ('saxophone.show', compact('saxophone'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Guitar  $guitar
+     * @param  \App\Models\Saxophone  $saxophone
      * @return \Illuminate\Http\Response
      */
-    public function edit(Guitar $guitar)
+    public function edit(Saxophone $saxophone)
     {
-        return view ('guitar.edit', compact('guitar'));
+        return view ('saxophone.edit' , compact ('saxophone'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Guitar  $guitar
+     * @param  \App\Models\Saxophone  $saxophone
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Guitar $guitar)
+    public function update(Request $request, Saxophone $saxophone)
     {
-        $dataGuitar = request()->except('_token');
-        $guitar->update($dataGuitar);
-        return redirect()->to(url('/guitar'));
+        $dataSaxophone = request()->except('_token');
+        $saxophone->update($dataSaxophone);
+        return redirect()->to(url('/saxophone'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Guitar  $guitar
+     * @param  \App\Models\Saxophone  $saxophone
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Guitar $guitar)
+    public function destroy(Saxophone $saxophone)
     {
-        $guitar->delete();
-        return redirect()->to(url('/guitar'));
+    $saxophone->delete();
+    return redirect()->to(url('/saxophone'));
     }
 }

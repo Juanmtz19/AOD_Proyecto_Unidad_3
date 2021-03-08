@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Guitar;
+use App\Models\Contrato;
 use Illuminate\Http\Request;
 
-class GuitarController extends Controller
+class ContratoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class GuitarController extends Controller
      */
     public function index()
     {
-        $guitar = Guitar::all();
-        return view ('guitar.index', compact('guitar'));
+        $contrato = Contrato::all();
+        return view ('contrato.index', compact('contrato'));
     }
 
     /**
@@ -25,7 +25,7 @@ class GuitarController extends Controller
      */
     public function create()
     {
-    return view ('guitar.create');
+        return view ('contrato.create');
     }
 
     /**
@@ -36,57 +36,56 @@ class GuitarController extends Controller
      */
     public function store(Request $request)
     {
-        $guitar = request()->except('_token');
-        guitar::insert($guitar);
-        return redirect()->to(url('/guitar'));
-        //return view('guitar.index');
+        $contrato = request()->except('_token');
+        contrato::insert($contrato);
+        return redirect()->to(url('/contrato'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Guitar  $guitar
+     * @param  \App\Models\Contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function show(Guitar $guitar)
+    public function show(Contrato $contrato)
     {
-        return view ('guitar.show' , compact('guitar'));
+        return view ('contrato.show' , compact('contrato'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Guitar  $guitar
+     * @param  \App\Models\Contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function edit(Guitar $guitar)
+    public function edit(Contrato $contrato)
     {
-        return view ('guitar.edit', compact('guitar'));
+        return view ('contrato.edit', compact('contrato'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Guitar  $guitar
+     * @param  \App\Models\Contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Guitar $guitar)
+    public function update(Request $request, Contrato $contrato)
     {
-        $dataGuitar = request()->except('_token');
-        $guitar->update($dataGuitar);
-        return redirect()->to(url('/guitar'));
+        $dataContrato = request()->except('_token');
+        $contrato->update($dataContrato);
+        return redirect()->to(url('/contrato'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Guitar  $guitar
+     * @param  \App\Models\Contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Guitar $guitar)
+    public function destroy(Contrato $contrato)
     {
-        $guitar->delete();
-        return redirect()->to(url('/guitar'));
+        $contrato>delete();
+        return redirect()->to(url('/contrato'));
     }
 }

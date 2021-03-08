@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuitarController;
+use App\Http\Controllers\SaxophoneController;
+use App\Http\Controllers\KeyboardController;
+use App\Http\Controllers\ContratoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,4 +22,16 @@ Route::get('/', function () {
 
 Route::resources([
     'guitar'=> GuitarController::class,
+]);
+
+Route::resources([
+    'saxophone' => SaxophoneController::class,
+]);
+
+Route::resources([
+    'keyboard' => KeyboardController::class,
+]);
+
+Route::resources([
+    'contrato' => ContratoController::class,
 ]);
